@@ -25,7 +25,7 @@ module ServiceWorker
     def handler_for_name(name)
       available_handlers = %w[sprockets webpacker rack]
       if available_handlers.include?(name.to_s)
-        send("#{name}_handler")
+        send(:"#{name}_handler")
       else
         raise ServiceWorker::Error,
           "Unknown handler #{name.inspect}. Please use one of #{available_handlers.inspect}"

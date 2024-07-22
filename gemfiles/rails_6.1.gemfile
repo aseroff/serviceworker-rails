@@ -1,12 +1,12 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '~> 6.1.0'
+gem "rails", "~> 6.1.0"
 
 group :development, :test do
-  gem 'guard', require: false
-  gem 'guard-minitest', require: false
-  gem 'pry'
-  gem 'pry-byebug', platforms: [:mri]
+  gem "guard", require: false
+  gem "guard-minitest", require: false
+  gem "pry"
+  gem "pry-byebug", platforms: [:mri]
 end
 
-gemspec path: '../'
+gemspec path: "../"
