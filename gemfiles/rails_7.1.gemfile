@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+gem 'rails', '~> 7.1.0'
+gem 'webpacker', '>= 4.1'
+
+group :development, :test do
+  gem 'guard', require: false
+  gem 'guard-minitest', require: false
+  gem 'pry'
+  gem 'pry-byebug', platforms: [:mri]
+end
+
+gemspec path: '../'
