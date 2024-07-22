@@ -6,7 +6,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
-  unless ENV["TRAVIS"]
+  unless ENV["CIRCLE_CI"]
     gem "guard", require: false
     gem "guard-minitest", require: false
     gem "pry"
