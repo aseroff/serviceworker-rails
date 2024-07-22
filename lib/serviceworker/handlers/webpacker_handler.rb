@@ -1,21 +1,25 @@
 # frozen_string_literal: true
 
-require "rack/file"
-require "webpacker"
+require 'rack/file'
+begin
+  require 'webpacker'
+rescue LoadError
+  # ignore
+end
 
 module ServiceWorker
   module Handlers
     class WebpackerHandler
       def call(env)
-        path_info = env.fetch("serviceworker.asset_name")
+        path_info = env.fetch('serviceworker.asset_name')
 
         path = Webpacker.manifest.lookup(path_info)
 
         if Webpacker.dev_server.running?
           proxy = Webpacker::DevServerProxy.new
-          proxy.call(env.merge("PATH_INFO" => path))
+          proxy.call(env.merge('PATH_INFO' => path))
         else
-          file_server.call(env.merge("PATH_INFO" => path))
+          file_server.call(env.merge('PATH_INFO' => path))
         end
       end
 
