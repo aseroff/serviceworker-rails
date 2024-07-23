@@ -10,10 +10,10 @@ module ServiceWorker
 
     attr_reader :routes
 
-    def initialize
+    def initialize(&block)
       @routes = []
 
-      draw(&Proc.new) if block_given?
+      draw(&block)
     end
 
     def draw(&block)
